@@ -7,7 +7,6 @@ all: causes.bin
 
 causes.bin: $(OBJ)
 	gcc -o $@ $^ $(CFLAGS)
-	chmod +x $@
 
 %.o: %.c $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)

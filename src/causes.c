@@ -90,7 +90,7 @@ void  saveNetwork(char** words, size_t wordCount, int* network)
 	printf("\t\tsaving as 'word.network'\n");
   i = 0;  
   while( i < wordCount) {
-    fprintf(output, "%i %s %i", (int) i, words[i], network[i]);
+    fprintf(output, "%zu %s %i", i, words[i], network[i]);
     if (network[i] != -1 )
       fprintf(output, " %s\n", words[network[i]]);
     else
@@ -168,7 +168,7 @@ void printNetworkInfo(char** words, int iword, size_t wordCount,int*  network)
     }
     ++i;
   }
-  printf("\tnetwork size: %i\n", netWorkSize);
+  printf("\tnetwork size: %zu\n", netWorkSize);
   printf("\t'%s' has most friends (%i friends)\n", words[mostFriends], max);
 }
 
@@ -185,7 +185,7 @@ int main (int argc, char const *argv[])
   */
   printf("-> Loading words\n");
   wordCount = initArrayWords(words);
-  printf("\tnumber of words: %d\n", (int) wordCount );
+  printf("\tnumber of words: %zu\n", wordCount );
   printf("\tfirst word: %s\n\tlast word: %s\n", words[0], words[wordCount - 1]);
   
   /*
@@ -201,7 +201,7 @@ int main (int argc, char const *argv[])
   */
   word = (char*) "causes";
   iword = wordsId(words, wordCount, word);
-  printf("\t'%s' has for id '%i' in array words\n", word, (int) iword);
+  printf("\t'%s' has for id '%i' in array words\n", word, iword);
   friendsFor(iword, wordCount, words, network);
   
   /*
