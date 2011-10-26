@@ -174,11 +174,13 @@ void printNetworkInfo(char** words, int iword, size_t wordCount,int*  network)
 
 int main (int argc, char const *argv[])
 {
-  char*   words[264070];
+  char**   words;
   int*    network;
   size_t  wordCount = 0;
   char*   word;
   int     iword;
+  
+  words = malloc(sizeof(char*) * 264070);
   
   /*
     Init the array of words
